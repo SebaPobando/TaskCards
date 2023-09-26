@@ -1,22 +1,11 @@
 import React from "react";
 
-function mostrarAlerta() {
-  const confirmar = window.confirm(
-    "¿Estás seguro que quieres eliminar la tarea?"
-  );
-  if (confirmar) {
-    console.log("Borrado con éxito");
-  } else {
-    console.log("Borrado cancelado");
-  }
-}
-
-function TaskCard({ task }) {
+function TaskCard({ task, deleteTask }) {
   return (
     <div>
       <h1>{task.title}</h1>
       <p>{task.description}</p>
-      <button onClick={mostrarAlerta}>Eliminar Tarea</button>
+      <button onClick={() => deleteTask(task.id)}>Eliminar Tarea</button>
     </div>
   );
 }
